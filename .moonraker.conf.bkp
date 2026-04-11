@@ -100,3 +100,7 @@ path = /home/pi/klipper_tmc_autotune
 channel = dev
 type = git_repo
 
+[notifier backup]
+url = command:///home/pi/klipper_backup.sh
+events = gcode_files_list_changed
+
