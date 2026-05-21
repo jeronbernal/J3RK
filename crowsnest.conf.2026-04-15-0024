@@ -1,0 +1,56 @@
+#### crowsnest.conf — Logitech C922 Pro
+
+[crowsnest]
+log_path: /home/pi/printer_data/logs/crowsnest.log
+log_level: quiet
+delete_log: true
+no_proxy: false
+
+[cam 1]
+mode: ustreamer
+port: 8080
+device: /dev/video0
+resolution: 1280x720
+max_fps: 30
+enable_rtsp: false
+rtsp_port: 8554
+v4l2ctl: focus_automatic_continuous=0,power_line_frequency=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# #### crowsnest.conf — Wansview 101JD
+# #### Device: /dev/v4l/by-id/usb-HD_Web_Camera_HD_Web_Camera_Ucamera001-video-index0
+# ####
+# #### Stream URL:    /webcam/?action=stream  (MJPEG fallback)
+# #### WebRTC URL:    /webcam/webrtc          (low-latency, use this in Mainsail)
+# #### Snapshot URL:  /webcam/?action=snapshot
+# #### RTSP URL:      rtsp://<ip>:8554/stream.h264
+
+# [crowsnest]
+# log_path: /home/pi/printer_data/logs/crowsnest.log
+# log_level: quiet                        # quiet/verbose/debug — change to verbose when troubleshooting
+# delete_log: true                        # fresh log on every restart
+# no_proxy: false
+
+# [cam 1]
+# mode: ustreamer                   # uses Pi 4 hardware encoding — lower latency + less CPU than ustreamer
+# port: 8080
+# device: /dev/video0
+# resolution: 1920x1080                   # confirmed supported: MJPG 1920x1080 @ 30fps
+# max_fps: 30
+# enable_rtsp: true                       # enables rtsp://pi-ip:8554/stream.h264
+# rtsp_port: 8554
+# #custom_flags:                          # uncomment to pass extra flags to camera-streamer
+# v4l2ctl: white_balance_automatic=1      # keep AWB on — camera is inside a lit enclosure with mixed lighting
